@@ -74,6 +74,10 @@ public class CustomerController extends HttpServlet {
         try (var writer = resp.getWriter()){
             Jsonb jsonb = JsonbBuilder.create();
             CustomerDto customerDto = jsonb.fromJson(req.getReader(), CustomerDto.class);
+            var updateCustomer = customerData.updateCustomer(customerDto, connection);
+
+            writer.write(updateCustomer);
+            logger.info("Update Customer");
 
         }catch (Exception e){
             throw new RuntimeException(e);
@@ -94,6 +98,19 @@ public class CustomerController extends HttpServlet {
             writer.write(json);
 
             logger.info("All customer Details are retrieved");
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String id = req.getParameter("id");
+        try(var writer = resp.getWriter()){
+            var deleteCustomer = customerData.deleteCustomer(id, connection);
+
+            writer.write(deleteCustomer);
+            logger.info("Delete Customer");
         }catch (Exception e){
             throw new RuntimeException(e);
         }

@@ -19,6 +19,8 @@ public class CustomerDataProcess implements CustomerData {
 
     static String SAVE_CUSTOMER = "INSERT INTO customer (cus_id,cus_name,cus_address,cus_salary) VALUES (?,?,?,?)";
     static String GET_CUSTOMERS = "SELECT * FROM customer";
+    static String UPDATE_CUSTOMER = "UPDATE customer SET cus_name = ?, cus_address = ?, cus_salary = ? WHERE cus_id = ?";
+    static String DELETE_CUSTOMER = "DELETE FROM customer WHERE cus_id = ? ";
 
     @Override
     public String saveCustomer(CustomerDto customerDto, Connection connection) {
@@ -40,15 +42,40 @@ public class CustomerDataProcess implements CustomerData {
             throw new RuntimeException(e);
         }
     }
-
     @Override
-    public String deleteCustomer(CustomerDto customerDto, Connection connection) {
-        return null;
+    public String deleteCustomer(String id, Connection connection) {
+        try {
+            PreparedStatement ps = connection.prepareStatement(DELETE_CUSTOMER);
+            ps.setString(1, id);
+
+            if (ps.executeUpdate()!= 0){
+                return "Customer Deleted";
+            }else {
+                return "Deleting failed";
+            }
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
     }
+
 
     @Override
     public String updateCustomer(CustomerDto customerDto, Connection connection) {
-        return null;
+        try {
+            PreparedStatement ps = connection.prepareStatement(UPDATE_CUSTOMER);
+            ps.setString(1,customerDto.getName());
+            ps.setString(2,customerDto.getAddress());
+            ps.setString(3, String.valueOf(customerDto.getSalary()));
+            ps.setString(4,customerDto.getId());
+
+            if (ps.executeUpdate() !=0){
+                return "Updated";
+            }else {
+                return "failed";
+            }
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
