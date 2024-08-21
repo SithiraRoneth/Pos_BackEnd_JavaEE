@@ -151,3 +151,44 @@
 13:43:04.546 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
 13:44:10.258 [RMI TCP Connection(3)-127.0.0.1] INFO  l.i.p.Controller.CustomerController -- initialize CustomerController
 13:44:10.621 [RMI TCP Connection(3)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
+22:04:45.290 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.p.Controller.CustomerController -- initialize CustomerController
+22:04:45.812 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
+22:04:57.073 [http-nio-8080-exec-6] INFO  l.i.p.Controller.CustomerController -- All customer Details are retrieved
+22:06:41.017 [RMI TCP Connection(5)-127.0.0.1] INFO  l.i.p.Controller.CustomerController -- initialize CustomerController
+22:06:41.260 [RMI TCP Connection(5)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
+22:06:49.669 [http-nio-8080-exec-11] INFO  l.i.p.Controller.CustomerController -- All customer Details are retrieved
+22:07:49.056 [RMI TCP Connection(10)-127.0.0.1] INFO  l.i.p.Controller.CustomerController -- initialize CustomerController
+22:07:49.273 [RMI TCP Connection(10)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
+22:08:35.128 [RMI TCP Connection(13)-127.0.0.1] INFO  l.i.p.Controller.CustomerController -- initialize CustomerController
+22:08:35.349 [RMI TCP Connection(13)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
+22:12:08.178 [RMI TCP Connection(4)-127.0.0.1] INFO  l.i.p.Controller.CustomerController -- initialize CustomerController
+22:12:08.684 [RMI TCP Connection(4)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
+22:13:07.173 [RMI TCP Connection(7)-127.0.0.1] INFO  l.i.p.Controller.CustomerController -- initialize CustomerController
+22:13:07.408 [RMI TCP Connection(7)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
+22:13:49.628 [RMI TCP Connection(3)-127.0.0.1] INFO  l.i.p.Controller.CustomerController -- initialize CustomerController
+22:13:50.120 [RMI TCP Connection(3)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
+22:16:55.876 [RMI TCP Connection(3)-127.0.0.1] INFO  l.i.p.Controller.CustomerController -- initialize CustomerController
+22:16:56.362 [RMI TCP Connection(3)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
+22:17:06.574 [http-nio-8080-exec-5] INFO  l.i.p.Controller.CustomerController -- All customer Details are retrieved
+22:17:26.195 [http-nio-8080-exec-6] INFO  l.i.p.Controller.ItemController -- item saved
+22:18:32.713 [RMI TCP Connection(7)-127.0.0.1] INFO  l.i.p.Controller.CustomerController -- initialize CustomerController
+22:18:32.972 [RMI TCP Connection(7)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
+22:18:51.562 [http-nio-8080-exec-5] INFO  l.i.p.Controller.ItemController -- item saved
+22:21:45.412 [RMI TCP Connection(10)-127.0.0.1] INFO  l.i.p.Controller.CustomerController -- initialize CustomerController
+22:21:45.639 [RMI TCP Connection(10)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
+22:22:09.270 [http-nio-8080-exec-16] INFO  l.i.p.Controller.ItemController -- item saved
+22:26:16.843 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.p.Controller.CustomerController -- initialize CustomerController
+22:26:17.331 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
+22:26:38.312 [http-nio-8080-exec-5] INFO  l.i.p.Controller.ItemController -- item saved
+22:47:34.088 [RMI TCP Connection(3)-127.0.0.1] INFO  l.i.p.Controller.CustomerController -- initialize CustomerController
+22:47:34.605 [RMI TCP Connection(3)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
+22:47:46.837 [http-nio-8080-exec-5] INFO  l.i.p.Controller.ItemController -- All item Details are retrieved
+22:47:46.837 [http-nio-8080-exec-6] INFO  l.i.p.Controller.CustomerController -- All customer Details are retrieved
+22:55:22.842 [RMI TCP Connection(3)-127.0.0.1] INFO  l.i.p.Controller.CustomerController -- initialize CustomerController
+22:55:23.394 [RMI TCP Connection(3)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
+22:55:34.743 [http-nio-8080-exec-8] INFO  l.i.p.Controller.ItemController -- All item Details are retrieved
+22:55:34.743 [http-nio-8080-exec-7] INFO  l.i.p.Controller.CustomerController -- All customer Details are retrieved
+22:55:55.750 [http-nio-8080-exec-3] INFO  l.i.p.Controller.ItemController -- All item Details are retrieved
+22:55:55.775 [http-nio-8080-exec-4] INFO  l.i.p.Controller.ItemController -- item saved
+22:57:00.752 [http-nio-8080-exec-10] INFO  l.i.p.Controller.ItemController -- All item Details are retrieved
+22:57:57.754 [http-nio-8080-exec-2] INFO  l.i.p.Controller.ItemController -- All item Details are retrieved

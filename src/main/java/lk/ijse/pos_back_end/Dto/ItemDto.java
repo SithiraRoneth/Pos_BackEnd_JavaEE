@@ -11,8 +11,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ItemDto {
-    private String itemCode;
+    private String code;
     private String itemName;
-    private int itemPrice;
-    private int itemQty;
+    private int unitPrice;
+    private int qtyOnHand;
 }

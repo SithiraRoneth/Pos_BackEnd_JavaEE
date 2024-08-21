@@ -23,6 +23,7 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 @WebServlet(urlPatterns = "/item",loadOnStartup = 2)
 public class ItemController extends HttpServlet {
@@ -44,10 +45,12 @@ public class ItemController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         if (!req.getContentType().toLowerCase().startsWith("application/json") || req.getContentType() == null) {
             //send error
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
         }
+
         try(var writer = resp.getWriter()){
             Jsonb jsonb = JsonbBuilder.create();
             ItemDto itemDto = jsonb.fromJson(req.getReader(), ItemDto.class);
@@ -72,6 +75,38 @@ public class ItemController extends HttpServlet {
             ItemDto itemDto = jsonb.fromJson(req.getReader(), ItemDto.class);
 
         }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try (var writer = resp.getWriter()) {
+            List<ItemDto> items = itemData.getAllItem(connection);
+
+            Jsonb jsonb = JsonbBuilder.create();
+            String json = jsonb.toJson(items);
+
+            resp.setContentType("application/json");
+            resp.setCharacterEncoding("UTF-8");
+
+            writer.write(json);
+
+            logger.info("All item Details are retrieved");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String code = req.getParameter("code");
+        try (var writer = resp.getWriter()) {
+            var deleteItem = itemData.deleteItem(code, connection);
+
+            writer.write(deleteItem);
+            logger.info("Delete Item");
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
