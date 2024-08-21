@@ -42,7 +42,6 @@ public class ItemController extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
