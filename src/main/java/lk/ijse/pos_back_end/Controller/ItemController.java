@@ -72,6 +72,10 @@ public class ItemController extends HttpServlet {
         try (var writer = resp.getWriter()){
             Jsonb jsonb = JsonbBuilder.create();
             ItemDto itemDto = jsonb.fromJson(req.getReader(), ItemDto.class);
+            var updateItem = itemData.updateItem(itemDto, connection);
+            writer.write(updateItem);
+
+            logger.info("Item Updated");
 
         }catch (Exception e){
             throw new RuntimeException(e);

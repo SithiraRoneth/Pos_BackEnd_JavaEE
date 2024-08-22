@@ -46,11 +46,12 @@ public class ItemDataProcess implements ItemData {
     @Override
     public String updateItem(ItemDto itemDto, Connection connection) {
         try {
-            PreparedStatement ps = connection.prepareStatement(UPDATE_ITEMS);
-            ps.setString(1,itemDto.getCode());
-            ps.setString(2,itemDto.getItemName());
-            ps.setString(3, String.valueOf(itemDto.getUnitPrice()));
-            ps.setString(4, String.valueOf(itemDto.getQtyOnHand()));
+            var ps = connection.prepareStatement(UPDATE_ITEMS);
+
+            ps.setString(1,itemDto.getItemName());
+            ps.setString(2, String.valueOf(itemDto.getUnitPrice()));
+            ps.setString(3, String.valueOf(itemDto.getQtyOnHand()));
+            ps.setString(4,itemDto.getCode());
 
             if (ps.executeUpdate() !=0){
                 return "Item Updated";
@@ -65,7 +66,7 @@ public class ItemDataProcess implements ItemData {
     @Override
     public String deleteItem(String id, Connection connection) {
         try {
-            PreparedStatement ps = connection.prepareStatement(DELETE_ITEMS);
+            var ps = connection.prepareStatement(DELETE_ITEMS);
             ps.setString(1,id);
 
             if (ps.executeUpdate() !=0){
