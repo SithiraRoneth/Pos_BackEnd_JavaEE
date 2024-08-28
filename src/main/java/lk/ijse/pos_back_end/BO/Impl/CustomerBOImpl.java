@@ -5,7 +5,7 @@
  * */
 package lk.ijse.pos_back_end.BO.Impl;
 
-import lk.ijse.pos_back_end.BO.CustomerBO;
+import lk.ijse.pos_back_end.BO.Bo.CustomerBO;
 import lk.ijse.pos_back_end.Dto.CustomerDto;
 import lk.ijse.pos_back_end.Entity.Customer;
 

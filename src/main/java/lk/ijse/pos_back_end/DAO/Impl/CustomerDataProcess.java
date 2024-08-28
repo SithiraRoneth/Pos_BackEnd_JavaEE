@@ -5,7 +5,7 @@
  * */
 package lk.ijse.pos_back_end.DAO.Impl;
 
-import lk.ijse.pos_back_end.DAO.CustomerData;
+import lk.ijse.pos_back_end.DAO.Dao.CustomerData;
 import lk.ijse.pos_back_end.Dto.CustomerDto;
 
 import java.sql.Connection;

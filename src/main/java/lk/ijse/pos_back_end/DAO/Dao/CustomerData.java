@@ -1,4 +1,4 @@
-package lk.ijse.pos_back_end.DAO;
+package lk.ijse.pos_back_end.DAO.Dao;
 
 import lk.ijse.pos_back_end.Dto.CustomerDto;
 

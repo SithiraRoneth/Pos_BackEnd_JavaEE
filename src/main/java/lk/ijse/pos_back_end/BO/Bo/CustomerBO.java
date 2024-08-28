@@ -1,4 +1,4 @@
-package lk.ijse.pos_back_end.BO;
+package lk.ijse.pos_back_end.BO.Bo;
 
 import lk.ijse.pos_back_end.Dto.CustomerDto;
 import lk.ijse.pos_back_end.Entity.Customer;

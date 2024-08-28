@@ -5,7 +5,7 @@
  * */
 package lk.ijse.pos_back_end.BO.Impl;
 
-import lk.ijse.pos_back_end.BO.ItemBO;
+import lk.ijse.pos_back_end.BO.Bo.ItemBO;
 import lk.ijse.pos_back_end.Dto.ItemDto;
 
 import java.sql.Connection;
