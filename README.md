@@ -50,4 +50,5 @@ The application uses SLF4J with Logback (or Java Util Logging) for logging. The 
 ### Steps
 
 1. **Clone the repository**:
-	https://github.com/SithiraRoneth/Pos_BackEnd_JavaEE.git
+   - Back End Project Repo - https://github.com/SithiraRoneth/Pos_BackEnd_JavaEE.git
+   - Front End Project Repo - https://github.com/SithiraRoneth/POS-System-JS.git
