@@ -483,3 +483,14 @@
 23:56:10.164 [http-nio-8080-exec-4] INFO  l.i.p.Controller.CustomerController -- All customer Details are retrieved
 23:56:20.862 [http-nio-8080-exec-7] INFO  l.i.p.Controller.CustomerController -- Update Customer
 23:56:20.911 [http-nio-8080-exec-9] INFO  l.i.p.Controller.CustomerController -- All customer Details are retrieved
+00:31:07.679 [RMI TCP Connection(3)-127.0.0.1] INFO  l.i.p.Controller.CustomerController -- initialize CustomerController
+00:31:08.175 [RMI TCP Connection(3)-127.0.0.1] INFO  l.i.p.Controller.ItemController -- Initialize ItemController
+00:31:19.031 [http-nio-8080-exec-6] INFO  l.i.p.Controller.ItemController -- All item Details are retrieved
+00:31:19.031 [http-nio-8080-exec-7] INFO  l.i.p.Controller.CustomerController -- All customer Details are retrieved
+00:31:19.042 [http-nio-8080-exec-9] INFO  l.i.p.Controller.CustomerController -- All customer Details are retrieved
+00:31:19.042 [http-nio-8080-exec-8] INFO  l.i.p.Controller.ItemController -- All item Details are retrieved
+00:31:48.123 [http-nio-8080-exec-5] INFO  l.i.p.Controller.CustomerController -- Customer Saved
+00:31:48.145 [http-nio-8080-exec-4] INFO  l.i.p.Controller.CustomerController -- All customer Details are retrieved
+00:32:15.741 [http-nio-8080-exec-6] INFO  l.i.p.Controller.ItemController -- All item Details are retrieved
+00:32:15.820 [http-nio-8080-exec-9] INFO  l.i.p.Controller.ItemController -- item saved
+00:32:15.851 [http-nio-8080-exec-10] INFO  l.i.p.Controller.ItemController -- All item Details are retrieved
