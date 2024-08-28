@@ -46,7 +46,7 @@ public class OrderController extends HttpServlet {
             //send error
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
         }
-        /*try (var writer = resp.getWriter()) {
+        try (var writer = resp.getWriter()) {
             Jsonb jsonb = JsonbBuilder.create();
             OrderDto orderDto = jsonb.fromJson(req.getReader(), OrderDto.class);
             OrderDetailsDto orderDetailsDto = jsonb.fromJson(req.getReader(), OrderDetailsDto.class);
@@ -59,6 +59,6 @@ public class OrderController extends HttpServlet {
 
         } catch (Exception e) {
             throw new RuntimeException(e);
-        }*/
+        }
     }
 }
