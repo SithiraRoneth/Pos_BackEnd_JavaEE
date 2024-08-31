@@ -5,8 +5,9 @@
  * */
 package lk.ijse.pos_back_end.DAO.Impl;
 
-import lk.ijse.pos_back_end.DAO.Dao.CustomerData;
+import lk.ijse.pos_back_end.DAO.Dao.CustomerDAO;
 import lk.ijse.pos_back_end.Dto.CustomerDto;
+import lk.ijse.pos_back_end.Entity.Customer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerDataProcess implements CustomerData {
+public class CustomerDAOImpl implements CustomerDAO {
 
     static String SAVE_CUSTOMER = "INSERT INTO customer (cus_id,cus_name,cus_address,cus_salary) VALUES (?,?,?,?)";
     static String GET_CUSTOMERS = "SELECT * FROM customer";
@@ -23,7 +24,7 @@ public class CustomerDataProcess implements CustomerData {
     static String DELETE_CUSTOMER = "DELETE FROM customer WHERE cus_id = ? ";
 
     @Override
-    public String saveCustomer(CustomerDto customerDto, Connection connection) {
+    public String saveCustomer(Customer customerDto, Connection connection) {
         try {
             var ps = connection.prepareStatement(SAVE_CUSTOMER);
 
@@ -60,7 +61,7 @@ public class CustomerDataProcess implements CustomerData {
 
 
     @Override
-    public String updateCustomer(CustomerDto customerDto, Connection connection) {
+    public String updateCustomer(Customer customerDto, Connection connection) {
         try {
             PreparedStatement ps = connection.prepareStatement(UPDATE_CUSTOMER);
             ps.setString(1,customerDto.getName());
@@ -79,15 +80,15 @@ public class CustomerDataProcess implements CustomerData {
     }
 
     @Override
-    public List<CustomerDto> getAllCustomer(Connection connection) {
-        List<CustomerDto> customer = new ArrayList<>();
+    public List<Customer> getAllCustomer(Connection connection) {
+        List<Customer> customer = new ArrayList<>();
 
         try {
             var ps = connection.prepareStatement(GET_CUSTOMERS);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-              CustomerDto customerDto = new CustomerDto();
+              Customer customerDto = new Customer();
               customerDto.setId(rs.getString("cus_id"));
               customerDto.setName(rs.getString("cus_name"));
               customerDto.setAddress(rs.getString("cus_address"));

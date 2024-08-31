@@ -5,8 +5,9 @@
  * */
 package lk.ijse.pos_back_end.DAO.Impl;
 
-import lk.ijse.pos_back_end.DAO.Dao.ItemData;
+import lk.ijse.pos_back_end.DAO.Dao.ItemDAO;
 import lk.ijse.pos_back_end.Dto.ItemDto;
+import lk.ijse.pos_back_end.Entity.Item;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,14 +16,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemDataProcess implements ItemData {
+public class ItemDAOImpl implements ItemDAO {
     static String ITEM_SAVED = "INSERT INTO item(item_code,item_name,item_price,item_qty) VALUES(?,?,?,?)";
     static String GET_ITEMS = "SELECT * FROM item";
     static String UPDATE_ITEMS = "UPDATE item SET item_name = ?,item_price = ?,item_qty = ? WHERE item_code = ?";
     static String DELETE_ITEMS = "DELETE FROM item WHERE item_code = ?";
 
     @Override
-    public String saveItem(ItemDto itemDto, Connection connection) {
+    public String saveItem(Item itemDto, Connection connection) {
         try {
             var ps = connection.prepareStatement(ITEM_SAVED);
 
@@ -44,7 +45,7 @@ public class ItemDataProcess implements ItemData {
     }
 
     @Override
-    public String updateItem(ItemDto itemDto, Connection connection) {
+    public String updateItem(Item itemDto, Connection connection) {
         try {
             var ps = connection.prepareStatement(UPDATE_ITEMS);
 
@@ -80,15 +81,15 @@ public class ItemDataProcess implements ItemData {
     }
 
     @Override
-    public List<ItemDto> getAllItem(Connection connection) {
-        List<ItemDto> items = new ArrayList<>();
+    public List<Item> getAllItem(Connection connection) {
+        List<Item> items = new ArrayList<>();
 
         try {
             PreparedStatement ps = connection.prepareStatement(GET_ITEMS);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                ItemDto itemDto = new ItemDto();
+                Item itemDto = new Item();
                 itemDto.setCode(rs.getString("item_code"));
                 itemDto.setItemName(rs.getString("item_name"));
                 itemDto.setUnitPrice(rs.getInt("item_price"));

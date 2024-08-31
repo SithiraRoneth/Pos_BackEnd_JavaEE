@@ -12,7 +12,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lk.ijse.pos_back_end.DAO.Impl.CustomerDataProcess;
+import lk.ijse.pos_back_end.BO.Bo.CustomerBO;
+import lk.ijse.pos_back_end.BO.Impl.CustomerBOImpl;
+import lk.ijse.pos_back_end.DAO.Impl.CustomerDAOImpl;
 import lk.ijse.pos_back_end.Dto.CustomerDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +23,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.io.IOException;
-import java.io.Writer;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -30,7 +31,7 @@ import java.util.List;
 public class CustomerController extends HttpServlet {
     static Logger logger = LoggerFactory.getLogger(CustomerController.class);
     Connection connection;
-    CustomerDataProcess customerData = new CustomerDataProcess();
+    CustomerBO customerBO = new CustomerBOImpl();
 
     @Override
     public void init() throws ServletException {
@@ -55,7 +56,7 @@ public class CustomerController extends HttpServlet {
             Jsonb jsonb = JsonbBuilder.create();
             CustomerDto customerDto = jsonb.fromJson(req.getReader(), CustomerDto.class);
 
-            var saveCustomer = customerData.saveCustomer(customerDto, connection);
+            var saveCustomer = customerBO.saveBOCustomer(customerDto, connection);
             writer.write(saveCustomer);
 
             logger.info("Customer Saved");
@@ -74,7 +75,7 @@ public class CustomerController extends HttpServlet {
         try (var writer = resp.getWriter()) {
             Jsonb jsonb = JsonbBuilder.create();
             CustomerDto customerDto = jsonb.fromJson(req.getReader(), CustomerDto.class);
-            var updateCustomer = customerData.updateCustomer(customerDto, connection);
+            var updateCustomer = customerBO.updateCustomer(customerDto, connection);
 
             writer.write(updateCustomer);
             logger.info("Update Customer");
@@ -87,7 +88,7 @@ public class CustomerController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (var writer = resp.getWriter()) {
-            List<CustomerDto> customers = customerData.getAllCustomer(connection);
+            List<CustomerDto> customers = customerBO.getAllCustomers(connection);
 
             Jsonb jsonb = JsonbBuilder.create();
             String json = jsonb.toJson(customers);
@@ -107,7 +108,7 @@ public class CustomerController extends HttpServlet {
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
         try (var writer = resp.getWriter()) {
-            var deleteCustomer = customerData.deleteCustomer(id, connection);
+            var deleteCustomer = customerBO.deleteCustomer(id, connection);
 
             writer.write(deleteCustomer);
             logger.info("Delete Customer");

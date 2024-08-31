@@ -12,7 +12,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lk.ijse.pos_back_end.DAO.Impl.ItemDataProcess;
+import lk.ijse.pos_back_end.BO.Bo.ItemBO;
+import lk.ijse.pos_back_end.BO.Impl.ItemBOImpl;
+import lk.ijse.pos_back_end.DAO.Impl.ItemDAOImpl;
 import lk.ijse.pos_back_end.Dto.ItemDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +31,7 @@ import java.util.List;
 public class ItemController extends HttpServlet {
     static Logger logger = LoggerFactory.getLogger(ItemController.class);
     Connection connection;
-    ItemDataProcess itemData = new ItemDataProcess();
+    ItemBO itemBO = new ItemBOImpl();
 
     @Override
     public void init() throws ServletException {
@@ -54,7 +56,7 @@ public class ItemController extends HttpServlet {
             Jsonb jsonb = JsonbBuilder.create();
             ItemDto itemDto = jsonb.fromJson(req.getReader(), ItemDto.class);
 
-            var saveItem = itemData.saveItem(itemDto, connection);
+            var saveItem = itemBO.saveItem(itemDto, connection);
             writer.write(saveItem);
 
             logger.info("item saved");
@@ -72,7 +74,7 @@ public class ItemController extends HttpServlet {
         try (var writer = resp.getWriter()){
             Jsonb jsonb = JsonbBuilder.create();
             ItemDto itemDto = jsonb.fromJson(req.getReader(), ItemDto.class);
-            var updateItem = itemData.updateItem(itemDto, connection);
+            var updateItem = itemBO.updateItem(itemDto, connection);
             writer.write(updateItem);
 
             logger.info("Item Updated");
@@ -85,7 +87,7 @@ public class ItemController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (var writer = resp.getWriter()) {
-            List<ItemDto> items = itemData.getAllItem(connection);
+            List<ItemDto> items = itemBO.getAllItems(connection);
 
             Jsonb jsonb = JsonbBuilder.create();
             String json = jsonb.toJson(items);
@@ -105,7 +107,7 @@ public class ItemController extends HttpServlet {
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String code = req.getParameter("code");
         try (var writer = resp.getWriter()) {
-            var deleteItem = itemData.deleteItem(code, connection);
+            var deleteItem = itemBO.deleteItem(code, connection);
 
             writer.write(deleteItem);
             logger.info("Delete Item");
